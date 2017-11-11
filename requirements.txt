@@ -1,0 +1,4 @@
+networkx == 2.0
+praw == 5.2.0
+numpy == 1.13.3
+flask == 2.4
