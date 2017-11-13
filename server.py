@@ -1,7 +1,12 @@
+import os
 import crawler
 import graph
 from flask import Flask, jsonify, request
 import psutil
+
+print('REDDIT_CLIENT_ID', os.environ['REDDIT_CLIENT_ID'])
+print('REDDIT_CLIENT_SECRET', os.environ['REDDIT_CLIENT_SECRET'])
+print('REDDIT_USER_AGENT', os.environ['REDDIT_USER_AGENT'])
 
 app = Flask(__name__)
 
