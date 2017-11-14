@@ -31,6 +31,17 @@ def get_heighest_weight_neighbour(graph, node, slice):
         response.append((heighest_weight_node, heighest_weight))
     return response
 
+def sub_recommandation(g, node):
+    """
+    Finds the most similar node to input node for graph
+    """
+    node_edges = g.edges(node)
+    preds = nx.jaccard_coefficient(g, node_edges)
+    edge_scores = []
+    for u, v, p in preds:
+        edge_scores.append({'source': u, 'target': v, 'score': p})
+    top_sub = sorted(edge_scores, key=lambda elem: elem['score'])[0]
+    return top_sub['target'], top_sub['score']
 
 if __name__ == '__main__':
     with open('output.json') as file:
